@@ -486,7 +486,7 @@ func (ae *ansibleExecutor) UpgradeNodes(plan Plan, nodesToUpgrade []ListableNode
 	// Upgrade etcd nodes
 	for _, nodeToUpgrade := range nodesToUpgrade {
 		for _, role := range nodeToUpgrade.Roles {
-			if role == "etcd" {
+			if role == "tcd" {
 				node := nodeToUpgrade
 				if err := ae.upgradeNodes(plan, onlineUpgrade, node); err != nil {
 					return fmt.Errorf("error upgrading node %q: %v", node.Node.Host, err)
